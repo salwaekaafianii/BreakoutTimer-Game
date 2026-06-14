@@ -15,7 +15,7 @@ public class ExitDoor : MonoBehaviour
             door.Rotate(0, 90, 0);
 
             Debug.Log("Pencuri berhasil kabur!");
-            Debug.Log("Total uang yang dicuri: $" + MoneyPickup.totalMoney);
+            Debug.Log("Total uang yang dicuri: $" + MoneyManager.totalMoney);
         }
     }
 }

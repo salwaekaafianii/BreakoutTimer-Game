@@ -6,6 +6,8 @@ public class Laser : MonoBehaviour
     public float activeTime = 8f;
     public float inactiveTime = 8f;
 
+    public GameObject gameOverPanel;
+
     private Renderer laserRenderer;
     private Collider laserCollider;
 
@@ -41,7 +43,7 @@ public class Laser : MonoBehaviour
         {
             isGameOver = true;
 
-            Debug.Log("GAME OVER");
+            gameOverPanel.SetActive(true);
 
             Time.timeScale = 0f;
         }

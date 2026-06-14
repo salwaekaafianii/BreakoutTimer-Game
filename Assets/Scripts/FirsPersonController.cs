@@ -21,6 +21,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private PlayerInputHandler playerInputHandler;
 
+    public bool isPaused;
     private Vector3 currentMovement;
     private float verticalRotation;
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
@@ -28,17 +29,18 @@ public class FirstPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPaused) return;
+
         HandleMovement();
         HandleRotation();
     }
-
     private Vector3 CalculateWorldDirection()
     {
         Vector3 inputDirection = new Vector3(playerInputHandler.MovementInput.x, 0f, playerInputHandler.MovementInput.y);
