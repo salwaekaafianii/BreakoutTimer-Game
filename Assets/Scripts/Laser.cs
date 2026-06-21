@@ -18,6 +18,8 @@ public class Laser : MonoBehaviour
         laserRenderer = GetComponent<Renderer>();
         laserCollider = GetComponent<Collider>();
 
+        gameOverPanel.SetActive(false);
+
         StartCoroutine(LaserLoop());
     }
 
@@ -25,16 +27,30 @@ public class Laser : MonoBehaviour
     {
         while (true)
         {
-            laserRenderer.enabled = true;
-            laserCollider.enabled = true;
-
-            yield return new WaitForSeconds(activeTime);
-
-            laserRenderer.enabled = false;
-            laserCollider.enabled = false;
+            yield return StartCoroutine(LaserOn());
 
             yield return new WaitForSeconds(inactiveTime);
         }
+    }
+
+    IEnumerator LaserOn()
+    {
+        float timer = 0f;
+
+        while (timer < activeTime)
+        {
+            // 🔥 flicker (nyala-mati cepat)
+            bool state = Mathf.FloorToInt(Time.time * 10) % 2 == 0;
+
+            laserRenderer.enabled = state;
+            laserCollider.enabled = state;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        laserRenderer.enabled = false;
+        laserCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,9 +59,14 @@ public class Laser : MonoBehaviour
         {
             isGameOver = true;
 
+            // reset uang
+            MoneyManager.totalMoney = 0;
+
             gameOverPanel.SetActive(true);
 
             Time.timeScale = 0f;
+
+            Debug.Log("Kena laser! Uang hilang semua!");
         }
     }
 }

@@ -1,18 +1,23 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimerManager : MonoBehaviour
 {
     public float timeRemaining = 300f;
-
     public TMP_Text timerText;
+    public GameObject gameOverPanel;
 
     private bool gameEnded = false;
 
+    void Start()
+    {
+        gameOverPanel.SetActive(false);
+    }
+
     void Update()
     {
-        if (gameEnded)
-            return;
+        if (gameEnded) return;
 
         if (timeRemaining > 0)
         {
@@ -25,15 +30,20 @@ public class TimerManager : MonoBehaviour
         }
         else
         {
-            timeRemaining = 0;
-
-            timerText.text = "00:00";
-
-            Debug.Log("GAME OVER");
-
-            gameEnded = true;
-
-            Time.timeScale = 0f;
+            GameOver();
         }
+    }
+
+    void GameOver()
+    {
+        timeRemaining = 0;
+        timerText.text = "00:00";
+        
+        MoneyManager.totalMoney = 0;
+
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+        gameEnded = true;
+    
     }
 }

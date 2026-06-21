@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class FirstPersonController : MonoBehaviour
 {
     [Header("Movement Speeds")]
-    [SerializeField] private float walkSpeed = 3.0f;
+    [SerializeField] private float walkSpeed = 7.0f;
     [SerializeField] private float sprintMultiplier = 2.0f;
 
     [Header("Jump Parameters")]
-    [SerializeField] private float jumpForce = 5.0f;
-    [SerializeField] private float gravityMultiplier = 1.0f;
+    [SerializeField] private float jumpForce = 6.0f;
+    [SerializeField] private float gravityMultiplier = 2.0f;
 
     [Header("Look Parameters")]
     [SerializeField] private float mouseSensitivity = 0.1f;

@@ -13,7 +13,7 @@ public class DoorOpen : MonoBehaviour
             opened = true;
 
             // Membuka pintu
-            door.Rotate(0f, 90f, 0f);
+            door.Rotate(0f, -90f, 0f);
         }
     }
 }
