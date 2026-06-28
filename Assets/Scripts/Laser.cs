@@ -7,6 +7,7 @@ public class Laser : MonoBehaviour
     public float inactiveTime = 8f;
 
     public GameObject gameOverPanel;
+    public AudioClip laserSound;
 
     private Renderer laserRenderer;
     private Collider laserCollider;
@@ -58,6 +59,14 @@ public class Laser : MonoBehaviour
         if (other.CompareTag("Player") && !isGameOver)
         {
             isGameOver = true;
+            if (SFXManager.IsSFXOn())
+            {
+                AudioSource.PlayClipAtPoint(
+    laserSound,
+    transform.position,
+    0.9f
+);
+            }
 
             // reset uang
             MoneyManager.totalMoney = 0;
