@@ -110,17 +110,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9f186216-4e52-4fc8-8d8c-01db69a52361",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "9ff7fae5-72e0-4397-9427-f92ddaf18fe3",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -149,6 +138,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d614dda4-3d68-41f0-8d8d-f14dad2624b9",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ebbcca9c-176a-4db5-aa89-8a872270ee6c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

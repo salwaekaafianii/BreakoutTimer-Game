@@ -10,17 +10,18 @@ public class MoneyPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             MoneyManager.totalMoney += moneyValue;
+            MoneyManager.moneyCollected++;
+
+            Debug.Log("Total Money = " + MoneyManager.totalMoney);
 
             if (SFXManager.IsSFXOn())
             {
                 AudioSource.PlayClipAtPoint(
-     moneySound,
-     transform.position,
-     0.9f
- );
+                    moneySound,
+                    transform.position,
+                    0.9f
+                );
             }
-
-            Debug.Log("Mengambil uang $" + moneyValue);
 
             Destroy(gameObject);
         }

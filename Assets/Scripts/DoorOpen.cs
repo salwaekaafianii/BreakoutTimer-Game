@@ -3,6 +3,7 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
     public Transform door;
+    public AudioSource doorSound;
 
     private bool opened = false;
 
@@ -12,7 +13,13 @@ public class DoorOpen : MonoBehaviour
         {
             opened = true;
 
-            // Membuka pintu
+            // Cek apakah SFX aktif
+            if (PlayerPrefs.GetInt("SFX", 1) == 1)
+            {
+                if (doorSound != null)
+                    doorSound.Play();
+            }
+
             door.Rotate(0f, -90f, 0f);
         }
     }
