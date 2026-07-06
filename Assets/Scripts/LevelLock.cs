@@ -16,5 +16,10 @@ public class LevelLock : MonoBehaviour
 
         level2Button.interactable = unlocked;
         lockImage.SetActive(!unlocked);
+
+        Debug.Log("LockImage Active = " + lockImage.activeSelf);
+        // PlayerPrefs.DeleteKey("Level2Unlocked");
+        // PlayerPrefs.Save();
     }
+
 }
